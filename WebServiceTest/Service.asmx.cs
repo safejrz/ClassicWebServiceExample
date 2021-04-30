@@ -5,21 +5,33 @@ using System.Web;
 using System.Web.Services;
 
 namespace WebServiceTest
-{
-    /// <summary>
-    /// Summary description for WebService1
-    /// </summary>
+{    
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
+
     public class Service : System.Web.Services.WebService
     {
         public Service()
         {
-            //
+            //So remember this .asmx file defines the sourcecode and type of the service
+            //.cs file will define the service class and it should inherit from System.Web.Services.WebService
+            // All public methods should include the [WebMethod] attribute.
+
+            //Webservices consist of 3 basic parts: 
+            //The Provider (HTTP server where the services are hosted)
+            //The Registry/Descriptor (where the UDDI is published in WSDL)
+            //The Requestor (Client that requests to the WebService by SOAP calls)
         }
+
+        [WebMethod]
+        public string Ping()
+        {
+            return "Pong";
+        }
+
         [WebMethod]
         public string HelloWorld()
         {
@@ -53,5 +65,7 @@ namespace WebServiceTest
             if (B == 0) return -1;
             return Convert.ToSingle(A / B);
         }
+
+        // For more info, you can review this url link: https://www.c-sharpcorner.com/UploadFile/1d42da/web-service-basics/
     }
 }
