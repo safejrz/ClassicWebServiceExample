@@ -49,16 +49,19 @@ namespace WebServiceTest
         {
             return (a + b);
         }
+
         [WebMethod]
         public System.Single Subtract(System.Single A, System.Single B)
         {
             return (A - B);
         }
+
         [WebMethod]
         public System.Single Multiply(System.Single A, System.Single B)
         {
             return A * B;
         }
+
         [WebMethod]
         public System.Single Divide(System.Single A, System.Single B)
         {
